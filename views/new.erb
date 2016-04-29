@@ -1,0 +1,51 @@
+<h2> <%= @title %> </h2>
+
+<p> <%= @story %> <p>
+
+
+<% if @option_a && @option_b && @option_c %>
+	<% @title %>
+	<% @story %>
+	<%= @decision %>
+
+
+	<a href=<%= "/direction/#{@option_a}" %>> <%= @option_a %> </a> 
+		
+		<% if @option_a && @option_b %>
+			<% @title %>
+			
+			<% if @decision && @destination %>
+				<a href=<%= "/direction/#{@decision}" %>> <%= @decision %> </a> 
+			<% end %>
+		<% end %>
+
+<% elsif @ending %>
+		<p> <%= @ending%> </p>
+<% end %>
+		
+
+
+	<a href=<%= "/direction/#{@option_b}" %>> <%= @option_b %> </a> 
+
+		<% if @option_a && @option_b %>
+			<% @title %>
+
+				<% if @decision && @title && @win_or_lose %>
+				<% end %>
+		<% end %>
+		
+		<% elsif @ending %>
+			<p> <%= @ending%> </p>
+		<% end %>
+		
+
+	<a href=<%= "/direction/#{@option_c}" %>> <%= @option_c %> </a> 
+
+		<% if @option_a && @option_b %>
+			<% @title %>
+		
+		<% elsif @ending %>
+				<p> <%= @ending%> </p>
+		<% end %>
+
+<% end %>
